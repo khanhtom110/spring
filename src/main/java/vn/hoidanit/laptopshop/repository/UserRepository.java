@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import vn.hoidanit.laptopshop.domain.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
-    User save(User user);
-}   
+public interface UserRepository extends JpaRepository<User, Long> {
+
+}
