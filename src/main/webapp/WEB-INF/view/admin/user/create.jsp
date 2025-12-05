@@ -12,6 +12,17 @@
                 <meta name="author" content="Hỏi Dân IT" />
                 <title>Create an user</title>
                 <link href="/css/styles.css" rel="stylesheet" />
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                <script>
+                    $(document).ready(() => {
+                        const avatarFile = $("#avatarFile");
+                        avatarFile.change(function (e) {
+                            const imgURL = URL.createObjectURL(e.target.files[0]);
+                            $("#avatarPreview").attr("src", imgURL);
+                            $("#avatarPreview").css({ "display": "block" });
+                        });
+                    });
+                </script>
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
 
@@ -74,13 +85,13 @@
 
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label for="avaterFile" class="form-label">Avatar:</label>
-                                                    <input class="form-control" type="file" id="avaterFile"
+                                                    <input class="form-control" type="file" id="avatarFile"
                                                         accept=".pnj, .jpg, .jpeg">
                                                 </div>
 
                                                 <div class="col-12 mb-3">
                                                     <img style="max-height: 250px; display: none;" alt="avatar preview"
-                                                        id="avartarPreview">
+                                                        id="avatarPreview">
                                                 </div>
 
                                                 <div class="col-12 mb-3">
