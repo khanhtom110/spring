@@ -1,11 +1,9 @@
 package vn.hoidanit.laptopshop.controller.admin;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,21 +19,21 @@ import vn.hoidanit.laptopshop.service.UserService;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import jakarta.servlet.ServletContext;
-
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class UserController {
     private final UserService userService;
     private final UserRepository userRepository;
     private final UploadService uploadService;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, UserRepository userRepository, UploadService uploadService) {
+    public UserController(UserService userService, UserRepository userRepository, UploadService uploadService,
+            PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.userRepository = userRepository;
         this.uploadService = uploadService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @RequestMapping("/")
@@ -60,8 +58,12 @@ public class UserController {
     @PostMapping(value = "/admin/user/create")
     public String createUserPage(Model model, @ModelAttribute("newUser") User user,
             @RequestParam("hoidanitFile") MultipartFile file) {
-        String avartar = uploadService.handleSaveUploadFile(file, "avarter");
-        // this.userRepository.save(user)
+        String avatar = uploadService.uploadFile(file, "avatar");
+        String hassPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hassPassword);
+        user.setAvatar(avatar);
+        user.setRole(userService.getRoleByName(user.getRole().getName()));
+        this.userRepository.save(user);
         return "redirect:/admin/user";
     }
 
