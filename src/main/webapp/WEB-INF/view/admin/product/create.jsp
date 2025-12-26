@@ -46,9 +46,15 @@
                                             <form:form method="post" action="/admin/product/create"
                                                 modelAttribute="newProduct" class="row" enctype="multipart/form-data">
                                                 <div class="mb-3 col-12 col-md-6">
+                                                    <c:set var="errorName">
+                                                        <form:errors path="name" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label class="form-label">Name:</label>
                                                     <br>
-                                                    <form:input type="text" class="form-control" path="name" />
+                                                    <form:input type="text"
+                                                        class="form-control ${empty errorName ? '' : 'is-invalid'}"
+                                                        path="name" />
+                                                    ${errorName}
                                                 </div>
 
                                                 <div class="mb-3 col-12 col-md-6">
