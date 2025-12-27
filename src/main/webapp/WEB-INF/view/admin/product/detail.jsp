@@ -35,6 +35,10 @@
                                             </div>
                                             <hr />
                                             <div class="card" style="width: 60%;">
+
+                                                <img class="card-img-top" src="/images/product/${product.image}" alt="">
+
+
                                                 <div class="card-header">
                                                     Product infor
                                                 </div>
@@ -42,7 +46,6 @@
                                                     <li class="list-group-item">ID: ${product.id}</li>
                                                     <li class="list-group-item">Name: ${product.name}</li>
                                                     <li class="list-group-item">Price: ${product.price}</li>
-                                                    <li class="list-group-item">Image: ${product.image}</li>
                                                     <li class="list-group-item">Detail description:
                                                         ${product.detailDesc}</li>
                                                     <li class="list-group-item">Short description: ${product.shortDesc}

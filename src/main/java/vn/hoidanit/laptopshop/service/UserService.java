@@ -38,7 +38,6 @@ public class UserService {
 
     public void updateUser(User newUser) {
         User user = getUser(newUser.getId());
-        System.out.println(user);
         user.setAddress(newUser.getAddress());
         user.setEmail(newUser.getEmail());
         user.setFullName(newUser.getFullName());
