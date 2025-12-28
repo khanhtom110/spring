@@ -6,10 +6,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import vn.hoidanit.laptopshop.domain.Product;
+import vn.hoidanit.laptopshop.service.ProductService;
+
 @Controller
 public class ItemController {
+    private final ProductService productService;
+
+    public ItemController(ProductService productService) {
+        this.productService = productService;
+    }
+
     @GetMapping("/product/{id}")
     public String getItem(Model model, @PathVariable long id) {
+        Product product = productService.getProduct(id).get();
+        model.addAttribute("product", product);
+        model.addAttribute("id", id);
         return "client/product/detail";
     }
 

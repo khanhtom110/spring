@@ -111,11 +111,13 @@
                                                     <label class="form-label">Factory:</label>
                                                     <br>
                                                     <form:select class="form-select" path="factory">
-                                                        <form:option value="Macbook" label="Macbook"></form:option>
-                                                        <form:option value="Asus" label="Asus"></form:option>
-                                                        <form:option value="Thinkpad" label="Thinkpad">
-                                                        </form:option>
-                                                        <form:option value="Dell" label="Dell"></form:option>
+                                                        <form:option value="APPLE" label="APPLE"></form:option>
+                                                        <form:option value="LG" label="LG"></form:option>
+                                                        <form:option value="ASUS" label="ASUS"></form:option>
+                                                        <form:option value="DELL" label="DELL"></form:option>
+                                                        <form:option value="LENOVO" label="LENOVO"></form:option>
+                                                        <form:option value="ACER" label="ACER"></form:option>
+
                                                     </form:select>
                                                 </div>
 
