@@ -5,7 +5,7 @@
         <!-- nhúng thư viện thẻ chuẩn của JSP  -->
 
         <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-            <!-- nhúng thư viện hỗ trợ Form của Spring MVC -->
+            <!-- nhúng thư viện hỗ trợ Form của Spring MVC-->
             <!DOCTYPE html>
             <html lang="en">
 
@@ -15,7 +15,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <meta name="description" content="" />
                 <meta name="author" content="" />
-                <title>Register</title>
+                <title>Register page</title>
                 <link href="css/styles.css" rel="stylesheet" />
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
