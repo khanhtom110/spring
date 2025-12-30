@@ -94,18 +94,12 @@ public class ProductController {
             @RequestParam("hoidanitFile") MultipartFile file) {
 
         if (newProductBindingResult.hasErrors()) {
-            List<FieldError> errors = newProductBindingResult.getFieldErrors();
-            for (FieldError error : errors) {
-                System.out.println(error.getField() + " - " + error.getDefaultMessage());
-            }
-
             return "admin/product/update";
         }
         // 2. Lấy Optional từ Service
         Optional<Product> productOptional = productService.getProduct(product.getId());
 
         if (productOptional.isPresent()) {
-            System.out.println("--------------------------------------------------");
             Product currentProduct = productOptional.get();
 
             if (!file.isEmpty()) {

@@ -40,12 +40,6 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @RequestMapping("/")
-    public String getHomePage() {
-        String test = this.userService.handleHello();
-        return "hello";
-    }
-
     @RequestMapping("/admin/user/create")
     public String getUserCreationPage(Model model) {
         model.addAttribute("newUser", new User());
