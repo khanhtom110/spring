@@ -62,10 +62,11 @@ public class UserController {
         // Validate
         List<FieldError> errors = newUserBindingResult.getFieldErrors();
         for (FieldError error : errors) {
-            System.out.println(">>>>" + error.getField() + " - " + error.getDefaultMessage());
+            System.out.println(">>>>" + error.getField() + " - " +
+                    error.getDefaultMessage());
         }
         if (newUserBindingResult.hasErrors()) {
-            return "/admin/user/create";
+            return "admin/user/create";
         }
 
         String avatar = uploadService.uploadFile(file, "avatar");

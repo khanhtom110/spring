@@ -77,9 +77,15 @@
                                                 </div>
 
                                                 <div class="mb-3 col-12 col-md-6">
+                                                    <c:set var="errorFullName">
+                                                        <form:errors path="fullName" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label class="form-label">Full name:</label>
                                                     <br>
-                                                    <form:input type="text" class="form-control" path="fullName" />
+                                                    <form:input type="text"
+                                                        class="form-control ${not empty errorFullName ? 'is-invalid':''}"
+                                                        path="fullName" />
+                                                    ${errorFullName}
                                                 </div>
 
                                                 <div class="mb-3">
