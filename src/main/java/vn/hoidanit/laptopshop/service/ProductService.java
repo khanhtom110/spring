@@ -116,4 +116,8 @@ public class ProductService {
             }
         }
     }
+
+    // public void updateCartBeforeCheckout(List<CartDetail> cartDetails){
+    // for(Cart cartDetail)
+    // }
 }
