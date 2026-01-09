@@ -106,7 +106,7 @@ public class ItemController {
     @PostMapping("/confirm-checkout")
     public String postCheckOut(@ModelAttribute("cart") Cart cart) {
         List<CartDetail> cartDetails = cart != null ? cart.getCartDetails() : new ArrayList<CartDetail>();
-        // productService
+        productService.updateCartBeforeCheckout(cartDetails);
         return "redirect:/checkout";
     }
 
